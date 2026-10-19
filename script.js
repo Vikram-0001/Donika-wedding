@@ -73,6 +73,19 @@ document.querySelectorAll("[data-bind]").forEach((el) => {
   if (CONFIG[key]) el.textContent = CONFIG[key];
 });
 
+// Disable automatic browser scroll restoration so the page always starts at the top
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+window.scrollTo(0, 0);
+
+// Clear any hash if opened with an anchor
+if (window.location.hash) {
+  try {
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+  } catch (e) {}
+}
+
 /* ============================================================
    1. ROYAL CURTAIN OPENING
    ============================================================ */
@@ -84,6 +97,21 @@ function openCurtains() {
   if (isCurtainOpen) return;
   isCurtainOpen = true;
 
+  // Ensure view starts exactly at the top of the page
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+  // Clear any anchor hash
+  if (window.location.hash) {
+    try {
+      history.replaceState(null, null, window.location.pathname + window.location.search);
+    } catch (e) {}
+  }
+
+  // Blur the button so focus doesn't jump to lower page elements
+  if (document.activeElement && typeof document.activeElement.blur === "function") {
+    document.activeElement.blur();
+  }
+
   // Play auspicious chime
   playRoyalAuspiciousChime();
 
@@ -92,6 +120,9 @@ function openCurtains() {
     curtainOverlay.classList.add("curtain-opened");
   }
   document.body.classList.remove("curtain-active");
+
+  // Keep page at the top after unlocking scroll
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
   // Shower royal petals and sparkles
   spawnPetalShower(36);
@@ -292,8 +323,33 @@ const mapFrame = $("mapFrame");
 const directionsBtn = $("directionsBtn");
 const copyAddressBtn = $("copyAddressBtn");
 
-if (mapFrame) mapFrame.src = CONFIG.mapsEmbedSrc;
+// Lazy-load venue map so it doesn't hijack scroll or focus during opening
+function loadVenueMap() {
+  if (mapFrame && !mapFrame.src) {
+    mapFrame.src = CONFIG.mapsEmbedSrc;
+  }
+}
+
+if (mapFrame) {
+  if ("IntersectionObserver" in window) {
+    const mapObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadVenueMap();
+          mapObserver.disconnect();
+        }
+      });
+    }, { rootMargin: "300px" });
+    mapObserver.observe(mapFrame);
+  } else {
+    setTimeout(loadVenueMap, 3500);
+  }
+}
+
 if (directionsBtn) directionsBtn.href = CONFIG.mapsLink;
+document.querySelectorAll('a[href="#venue"]').forEach((link) => {
+  link.addEventListener("click", loadVenueMap);
+});
 
 if (copyAddressBtn) {
   copyAddressBtn.addEventListener("click", async () => {
