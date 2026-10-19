@@ -65,7 +65,6 @@ const CONFIG = {
    ============================================================ */
 const $ = (id) => document.getElementById(id);
 let currentCardIndex = 0;
-let autoSlideInterval = null;
 let isCurtainOpen = false;
 
 // Bind text fields
@@ -214,63 +213,8 @@ dots.forEach((dot) => {
   });
 });
 
-// Auto-Slide Toggle
-const autoSlideToggle = $("autoSlideToggle");
-let isAutoSliding = false;
-
-function toggleAutoSlide() {
-  if (isAutoSliding) {
-    clearInterval(autoSlideInterval);
-    autoSlideInterval = null;
-    isAutoSliding = false;
-    autoSlideToggle.classList.remove("active");
-    autoSlideToggle.querySelector(".toggle-icon").textContent = "▶";
-    autoSlideToggle.querySelector(".toggle-label").textContent = "Auto-slide preview";
-  } else {
-    isAutoSliding = true;
-    autoSlideToggle.classList.add("active");
-    autoSlideToggle.querySelector(".toggle-icon").textContent = "⏸";
-    autoSlideToggle.querySelector(".toggle-label").textContent = "Pause auto-slide";
-    autoSlideInterval = setInterval(() => {
-      goToCard(currentCardIndex + 1, "up");
-    }, 4500);
-  }
-}
-if (autoSlideToggle) {
-  autoSlideToggle.addEventListener("click", toggleAutoSlide);
-}
-
-// Touch / Swipe support on the slide deck for mobile
-let touchStartY = 0;
-let touchStartX = 0;
-const deckStage = $("slideDeckStage");
-
-if (deckStage) {
-  deckStage.addEventListener("touchstart", (e) => {
-    touchStartY = e.touches[0].clientY;
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-
-  deckStage.addEventListener("touchend", (e) => {
-    const diffY = touchStartY - e.changedTouches[0].clientY;
-    const diffX = touchStartX - e.changedTouches[0].clientX;
-
-    // Detect swipe up (slide next) or swipe down (slide prev)
-    if (Math.abs(diffY) > 40 && Math.abs(diffY) > Math.abs(diffX)) {
-      if (diffY > 0) {
-        goToCard(currentCardIndex + 1, "up");
-      } else {
-        goToCard(currentCardIndex - 1, "down");
-      }
-    } else if (Math.abs(diffX) > 40) {
-      if (diffX > 0) {
-        goToCard(currentCardIndex + 1, "up");
-      } else {
-        goToCard(currentCardIndex - 1, "down");
-      }
-    }
-  }, { passive: true });
-}
+// Note: Cards only change when the user explicitly clicks/touches a button (tabs, arrows, dots, or next buttons).
+// Touch swipe interception has been removed so natural mobile page scrolling is never interrupted.
 
 /* ============================================================
    3. SHUBH VIVAH COUNTDOWN TIMER
