@@ -179,7 +179,46 @@ function goToCard(targetIndex, direction = "up") {
       card.classList.add("card-exited-down");
     }
   });
+
+  // Dynamically update the stage height to perfectly match the active card
+  updateStageHeight();
 }
+
+/**
+ * Dynamically adjusts the height of #slideDeckStage to match the active invitation card.
+ * This completely prevents card overflow and overlapping with the Itinerary/Timeline section.
+ */
+function updateStageHeight() {
+  const stage = $("slideDeckStage");
+  if (!stage || cards.length === 0) return;
+  const activeCard = cards[currentCardIndex] || cards[0];
+  if (activeCard) {
+    const cardHeight = Math.max(activeCard.offsetHeight, activeCard.scrollHeight);
+    if (cardHeight > 0) {
+      stage.style.minHeight = `${cardHeight + 20}px`;
+    }
+  }
+}
+
+// Resize & Font load observers to keep stage height pixel-perfect
+window.addEventListener("load", updateStageHeight);
+window.addEventListener("resize", updateStageHeight);
+window.addEventListener("orientationchange", updateStageHeight);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(updateStageHeight);
+}
+
+if (typeof ResizeObserver !== "undefined") {
+  const cardResizeObserver = new ResizeObserver(() => {
+    updateStageHeight();
+  });
+  cards.forEach((card) => {
+    if (card) cardResizeObserver.observe(card);
+  });
+}
+
+// Initial call to ensure proper height on load
+updateStageHeight();
 
 // Stage Navigation Buttons
 const prevBtn = $("prevCardBtn");

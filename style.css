@@ -927,10 +927,11 @@ button {
 /* The Slide Deck Stage */
 .slide-deck-stage {
   position: relative;
-  min-height: 540px;
+  min-height: 820px;
   max-width: 760px;
   margin: 0 auto;
   perspective: 1200px;
+  transition: min-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Stage Navigation Controls */
@@ -1337,7 +1338,8 @@ button {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin-top: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
   flex-wrap: wrap;
 }
 
@@ -1775,7 +1777,7 @@ button {
   }
   
   .slide-deck-stage {
-    min-height: 600px;
+    min-height: 860px;
   }
   
   .stage-controls {
@@ -1892,7 +1894,7 @@ button {
   }
 
   .slide-deck-stage {
-    min-height: 660px;
+    min-height: 940px;
   }
 
   .blessing-banner {
