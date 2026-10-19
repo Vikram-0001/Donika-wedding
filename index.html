@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Donika &amp; Aval | Royal Wedding Invitation</title>
+  <meta name="description"
+    content="You are cordially invited to celebrate the royal wedding celebrations of Donika &amp; Aval. Haldi, Ladies Sangeet &amp; Shaadi.">
+  <meta name="theme-color" content="#5a0e1e">
+
+  <!-- Royal Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Marcellus&family=Jost:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="curtain-active">
+
+  <!-- ============================================================
+       ROYAL VELVET CURTAINS OPENING OVERLAY
+       ============================================================ -->
+  <div id="curtainOverlay" class="curtain-overlay" role="dialog" aria-modal="true" aria-label="Royal Wedding Curtain">
+    <!-- Top Royal Pelmet / Valance -->
+    <div class="curtain-pelmet" aria-hidden="true">
+      <div class="pelmet-swag"></div>
+      <div class="pelmet-swag"></div>
+      <div class="pelmet-swag"></div>
+      <div class="pelmet-fringe"></div>
+    </div>
+
+    <!-- Left Velvet Curtain -->
+    <div class="curtain-panel curtain-left" id="curtainLeft">
+      <div class="curtain-fabric"></div>
+      <div class="curtain-gold-trim"></div>
+      <div class="curtain-tieback" aria-hidden="true">
+        <span class="tieback-cord"></span>
+        <span class="tieback-tassel"></span>
+      </div>
+      <div class="curtain-bottom-fringe"></div>
+    </div>
+
+    <!-- Right Velvet Curtain -->
+    <div class="curtain-panel curtain-right" id="curtainRight">
+      <div class="curtain-fabric"></div>
+      <div class="curtain-gold-trim"></div>
+      <div class="curtain-tieback" aria-hidden="true">
+        <span class="tieback-cord"></span>
+        <span class="tieback-tassel"></span>
+      </div>
+      <div class="curtain-bottom-fringe"></div>
+    </div>
+
+    <!-- Center Royal Crest & Invitation Seal -->
+    <div class="curtain-seal-container" id="curtainSeal">
+      <div class="royal-seal">
+        <!-- Golden Ganesh Motif -->
+        <div class="seal-icon" aria-hidden="true">
+          <svg viewBox="0 0 100 100" class="ganesh-svg">
+            <path
+              d="M50 15 C42 15 36 21 36 29 C36 34 39 38 42 41 C37 43 32 48 30 54 C27 62 28 72 34 78 C39 83 45 85 50 85 C55 85 61 83 66 78 C72 72 73 62 70 54 C68 48 63 43 58 41 C61 38 64 34 64 29 C64 21 58 15 50 15 Z"
+              fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M50 25 L50 48 M45 32 C47 30 53 30 55 32 M43 38 C46 36 54 36 57 38" fill="none"
+              stroke="currentColor" stroke-width="2" />
+            <circle cx="50" cy="20" r="2.5" fill="currentColor" />
+            <path d="M38 52 C32 50 24 55 24 64 C24 72 32 78 40 76" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" />
+            <path d="M62 52 C68 50 76 55 76 64 C76 72 68 78 60 76" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" />
+            <path d="M50 50 C54 58 54 68 48 72 C44 75 40 72 40 68 C40 62 47 60 48 56" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="68" cy="62" r="3" fill="currentColor" />
+          </svg>
+        </div>
+        <p class="seal-shloka">॥ श्री गणेशाय नमः ॥</p>
+        <div class="seal-divider">
+          <span>♦</span><span class="line"></span><span>⚜</span><span class="line"></span><span>♦</span>
+        </div>
+        <p class="seal-subtitle">THE WEDDING CELEBRATION OF</p>
+        <h1 class="seal-names">
+          <span data-bind="bride">Donika</span>
+          <span class="seal-amp">&amp;</span>
+          <span data-bind="groom">Aval</span>
+        </h1>
+
+
+        <button id="unveilBtn" class="btn btn--royal-unveil" type="button"
+          aria-label="Open wedding invitation and curtains">
+          <span class="btn-glow"></span>
+          <span class="btn-text">
+            <svg class="btn-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+            </svg>
+            Unveil The Celebrations
+          </span>
+          <span class="btn-sub">Tap to open curtains</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Petals / Sparkles Canvas -->
+  <div id="petalsContainer" class="petals-container" aria-hidden="true"></div>
+
+  <!-- Top Sticky Royal Navigation Bar -->
+  <header class="royal-nav" id="royalNav">
+    <div class="nav-content">
+      <a href="#hero" class="nav-brand">
+        <span class="nav-monogram">D &amp; A</span>
+        <span class="nav-dates">Nov 21–22, 2026</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#unveilStage">Invitation Cards</a>
+        <a href="#timeline">Itinerary</a>
+        <a href="#venue">Venue &amp; Map</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO STAGE: Auspicious Welcome & Countdown
+       ============================================================ -->
+  <section class="hero-stage" id="hero">
+    <div class="hero-backdrop" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="royal-badge">
+        <span class="shubh-tag">॥ शुभ विवाह ॥</span>
+      </div>
+
+      <p class="hero-blessing" lang="hi">
+        ॥ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ । निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+      </p>
+
+      <p class="hero-family-invite">
+        With the heavenly blessings of our ancestors and elders,<br>
+        we cordially invite you to join us in celebrating the royal union of
+      </p>
+
+      <div class="hero-couple">
+        <h1 class="hero-name hero-name--bride" data-bind="bride">Donika</h1>
+        <div class="hero-knot">
+          <span class="knot-line"></span>
+          <span class="knot-symbol">weds</span>
+          <span class="knot-line"></span>
+        </div>
+        <h1 class="hero-name hero-name--groom" data-bind="groom">Aval</h1>
+      </div>
+
+      <p class="hero-date-highlight">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+          class="gold-icon">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
+        <span id="heroDateText">Saturday, 21<sup>st</sup> &amp; Sunday, 22<sup>nd</sup> November 2026</span>
+      </p>
+
+      <p class="hero-venue-highlight">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+          class="gold-icon">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+        <span data-bind="venueName">Aashirwad Banquet &amp; Garden</span>, Gurugram
+      </p>
+
+      <!-- Royal Countdown Clock -->
+      <div class="royal-countdown-wrapper">
+        <h3 class="countdown-title">Counting Down to the Auspicious Pheras</h3>
+        <div class="countdown" id="countdownGrid" aria-live="off">
+          <div class="cd-box"><span class="cd-val" id="cdDays">00</span><span class="cd-label">Days</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-box"><span class="cd-val" id="cdHours">00</span><span class="cd-label">Hours</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-box"><span class="cd-val" id="cdMins">00</span><span class="cd-label">Minutes</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-box"><span class="cd-val" id="cdSecs">00</span><span class="cd-label">Seconds</span></div>
+        </div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="#unveilStage" class="btn btn--gold-primary">
+          <span>View Invitation Cards</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M19 12l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  </div>
+  </section>
+
+  <!-- ============================================================
+       THE INVITATION CARDS SHOWCASE (DOWN TO UP SLIDE-IN ONE BY ONE)
+       ============================================================ -->
+  <section class="section showcase-section" id="unveilStage">
+    <div class="section-header">
+      <p class="section-tag">॥ उत्सव रूपरेखा ॥</p>
+      <h2 class="section-title">The Royal Wedding Events</h2>
+      <div class="title-ornament">
+        <span></span><span class="dia">♦</span><span>⚜</span><span class="dia">♦</span><span></span>
+      </div>
+      <p class="section-desc">
+        Watch each invitation card slide in with its auspicious ceremony details. You can navigate through them or let
+        the celebration unfold.
+      </p>
+    </div>
+
+    <!-- Event Step Indicators / Tabs -->
+    <div class="event-step-tabs" role="tablist" aria-label="Event invitation tabs">
+      <button class="step-tab active" role="tab" aria-selected="true" data-index="0" id="tab-0">
+        <span class="step-num">01</span>
+        <span class="step-icon">🌼</span>
+        <span class="step-text">
+          <strong>Haldi</strong>
+          <small>21 Nov • 2:00 PM</small>
+        </span>
+      </button>
+
+      <button class="step-tab" role="tab" aria-selected="false" data-index="1" id="tab-1">
+        <span class="step-num">02</span>
+        <span class="step-icon">🪕</span>
+        <span class="step-text">
+          <strong>Ladies Sangeet</strong>
+          <small>21 Nov • 7:00 PM onwards</small>
+        </span>
+      </button>
+
+      <button class="step-tab" role="tab" aria-selected="false" data-index="2" id="tab-2">
+        <span class="step-num">03</span>
+        <span class="step-icon">👑</span>
+        <span class="step-text">
+          <strong>Shaadi</strong>
+          <small>22 Nov • Auspicious Day</small>
+        </span>
+      </button>
+    </div>
+
+    <!-- The Slide Stage Deck where cards slide down-to-up -->
+    <div class="slide-deck-stage" id="slideDeckStage">
+      <!-- Controls floating on stage -->
+      <div class="stage-controls">
+        <button id="prevCardBtn" class="stage-nav-btn prev" aria-label="Previous invitation card"
+          title="Previous event">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="stage-counter" id="stageCounter">
+          <span id="currentCardNum">1</span> / <span>3</span>
+        </div>
+        <button id="nextCardBtn" class="stage-nav-btn next" aria-label="Next invitation card" title="Next event">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- CARD 1: HALDI (Slides in down-to-up) -->
+      <article class="invitation-card card--haldi card-active" id="card-0" data-card-index="0">
+        <div class="card-ornament-border"></div>
+        <div class="card-inner">
+          <div class="card-corner top-left"></div>
+          <div class="card-corner top-right"></div>
+          <div class="card-corner bottom-left"></div>
+          <div class="card-corner bottom-right"></div>
+
+          <div class="card-header">
+            <span class="card-ceremony-tag">Shubh Haldi Ceremony</span>
+            <div class="card-badge-emblem">
+              <span class="card-symbol-art">🌼</span>
+            </div>
+            <h3 class="card-title">Haldi</h3>
+            <p class="card-subhead">Auspicious Turmeric, Phoolon ki Holi &amp; Laughter</p>
+          </div>
+
+          <div class="card-gold-separator">
+            <span></span><i>♦</i><span></span>
+          </div>
+
+          <div class="card-details-grid">
+            <div class="detail-item detail-item--highlight">
+              <span class="detail-label">DATE</span>
+              <span class="detail-value">Saturday, 21<sup>st</sup> November 2026</span>
+            </div>
+            <div class="detail-item detail-item--time">
+              <span class="detail-label">TIME</span>
+              <span class="detail-value">2:00 PM</span>
+            </div>
+            <div class="detail-item detail-item--venue">
+              <span class="detail-label">VENUE</span>
+              <span class="detail-value" data-bind="venueName">Aashirwad Banquet &amp; Garden</span>
+              <span class="detail-sub">Gurugram, Haryana</span>
+            </div>
+            <div class="detail-item detail-item--dress">
+              <span class="detail-label">ATTIRE SUGGESTION</span>
+              <span class="detail-value">Shades of Yellow, Ochre &amp; Marigold</span>
+            </div>
+          </div>
+
+          <p class="card-description">
+            “May the auspicious yellow of turmeric bring glowing joy, prosperity, and blessings as the celebrations
+            begin with laughter, dholak beats, and fragrant flowers.”
+          </p>
+
+          <div class="card-footer-actions">
+            <button class="btn btn--card-next" onclick="goToCard(1)">
+              Next: Ladies Sangeet
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: LADIES SANGEET (Slides in down-to-up) -->
+      <article class="invitation-card card--sangeet" id="card-1" data-card-index="1">
+        <div class="card-ornament-border"></div>
+        <div class="card-inner">
+          <div class="card-corner top-left"></div>
+          <div class="card-corner top-right"></div>
+          <div class="card-corner bottom-left"></div>
+          <div class="card-corner bottom-right"></div>
+
+          <div class="card-header">
+            <span class="card-ceremony-tag">Musical Celebration</span>
+            <div class="card-badge-emblem">
+              <span class="card-symbol-art">🪕</span>
+            </div>
+            <h3 class="card-title">Ladies Sangeet</h3>
+            <p class="card-subhead">Dhol, Boliyan, Dazzling Dance &amp; Royal Dinner</p>
+          </div>
+
+          <div class="card-gold-separator">
+            <span></span><i>♦</i><span></span>
+          </div>
+
+          <div class="card-details-grid">
+            <div class="detail-item detail-item--highlight">
+              <span class="detail-label">DATE</span>
+              <span class="detail-value">Saturday, 21<sup>st</sup> November 2026</span>
+            </div>
+            <div class="detail-item detail-item--time">
+              <span class="detail-label">TIME</span>
+              <span class="detail-value">7:00 PM Onwards</span>
+            </div>
+            <div class="detail-item detail-item--venue">
+              <span class="detail-label">VENUE</span>
+              <span class="detail-value" data-bind="venueName">Aashirwad Banquet &amp; Garden</span>
+              <span class="detail-sub">Gurugram, Haryana</span>
+            </div>
+            <div class="detail-item detail-item--dress">
+              <span class="detail-label">ATTIRE SUGGESTION</span>
+              <span class="detail-value">Glamorous Indian Traditional / Indo-Western</span>
+            </div>
+          </div>
+
+          <p class="card-description">
+            “Put on your dancing shoes and join us for a sparkling evening filled with foot-tapping beats, heartfelt
+            family performances, endless laughter, and a grand feast.”
+          </p>
+
+          <div class="card-footer-actions">
+            <button class="btn btn--card-action" onclick="goToCard(0)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              Previous: Haldi
+            </button>
+            <button class="btn btn--card-next" onclick="goToCard(2)">
+              Next: Shaadi Ceremony
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3: SHAADI (Slides in down-to-up) -->
+      <article class="invitation-card card--shaadi" id="card-2" data-card-index="2">
+        <div class="card-ornament-border"></div>
+        <div class="card-inner">
+          <div class="card-corner top-left"></div>
+          <div class="card-corner top-right"></div>
+          <div class="card-corner bottom-left"></div>
+          <div class="card-corner bottom-right"></div>
+
+          <div class="card-header">
+            <span class="card-ceremony-tag">The Grand Auspicious Wedding</span>
+            <div class="card-badge-emblem">
+              <span class="card-symbol-art">👑</span>
+            </div>
+            <h3 class="card-title">Shaadi</h3>
+            <p class="card-subhead">Sacred Vedic Pheras &amp; The Vow of Eternity</p>
+          </div>
+
+          <div class="card-gold-separator">
+            <span></span><i>♦</i><span></span>
+          </div>
+
+          <div class="card-details-grid">
+            <div class="detail-item detail-item--highlight">
+              <span class="detail-label">DATE</span>
+              <span class="detail-value">Sunday, 22<sup>nd</sup> November 2026</span>
+            </div>
+            <div class="detail-item detail-item--time">
+              <span class="detail-label">TIMINGS</span>
+              <span class="detail-value">Baraat Swagat: 7:00 PM • Varmala: 8:30 PM • Pheras: 10:00 PM</span>
+            </div>
+            <div class="detail-item detail-item--venue">
+              <span class="detail-label">VENUE</span>
+              <span class="detail-value" data-bind="venueName">Aashirwad Banquet &amp; Garden</span>
+              <span class="detail-sub">Gurugram, Haryana</span>
+            </div>
+            <div class="detail-item detail-item--dress">
+              <span class="detail-label">ATTIRE SUGGESTION</span>
+              <span class="detail-value">Royal Ethnic Finery / Traditional Sherwanis &amp; Sarees</span>
+            </div>
+          </div>
+
+          <p class="card-description">
+            “Two souls, one sacred fire, and seven eternal vows. We seek your divine presence, love, and heartfelt
+            blessings as Donika &amp; Aval step together into a lifetime of togetherness.”
+          </p>
+
+          <div class="card-footer-actions">
+            <button class="btn btn--card-action" onclick="goToCard(1)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              Previous: Sangeet
+            </button>
+            <a href="#venue" class="btn btn--card-next">
+              View Venue &amp; Directions
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Slide progress & Auto Play toggle -->
+    <div class="stage-bottom-bar">
+      <div class="deck-dots" id="deckDots">
+        <button class="dot active" data-index="0" aria-label="Show Haldi card"></button>
+        <button class="dot" data-index="1" aria-label="Show Ladies Sangeet card"></button>
+        <button class="dot" data-index="2" aria-label="Show Shaadi card"></button>
+      </div>
+      <button id="autoSlideToggle" class="btn-subtle-toggle" type="button">
+        <span class="toggle-icon">▶</span>
+        <span class="toggle-label">Auto-slide preview</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TIMELINE VIEW (FULL SCROLLABLE CELEBRATION SCHEDULE)
+       ============================================================ -->
+  <section class="section section--timeline" id="timeline">
+    <div class="section-header">
+      <p class="section-tag">॥ कार्यक्रम विवरण ॥</p>
+      <h2 class="section-title">Wedding Itinerary</h2>
+      <div class="title-ornament"><span></span><span class="dia">♦</span><span>⚜</span><span
+          class="dia">♦</span><span></span></div>
+      <p class="section-desc">A step-by-step royal guide to our wedding celebrations.</p>
+    </div>
+
+    <div class="royal-timeline">
+      <!-- Item 1: Haldi -->
+      <div class="timeline-row scroll-slide-up" data-theme="haldi">
+        <div class="timeline-date-badge">
+          <span class="day">21</span>
+          <span class="mon">NOV</span>
+          <span class="yr">2026</span>
+        </div>
+        <div class="timeline-marker">
+          <span class="marker-dot"></span>
+        </div>
+        <div class="timeline-content-card">
+          <div class="tl-card-header">
+            <span class="tl-time">2:00 PM</span>
+            <span class="tl-chip chip-yellow">Day 1 • Afternoon</span>
+          </div>
+          <h3 class="tl-title">Haldi Ceremony</h3>
+          <p class="tl-desc">
+            The auspicious turmeric ritual where family and friends coat the bride and groom in healing ubtan, shower
+            blessings with fragrant petals, and dance to traditional folk songs.
+          </p>
+          <div class="tl-meta">
+            <span>📍 Aashirwad Banquet &amp; Garden</span>
+            <span>💛 Dress Code: Yellow &amp; Gold</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2: Ladies Sangeet -->
+      <div class="timeline-row scroll-slide-up" data-theme="sangeet">
+        <div class="timeline-date-badge">
+          <span class="day">21</span>
+          <span class="mon">NOV</span>
+          <span class="yr">2026</span>
+        </div>
+        <div class="timeline-marker">
+          <span class="marker-dot"></span>
+        </div>
+        <div class="timeline-content-card">
+          <div class="tl-card-header">
+            <span class="tl-time">7:00 PM Onwards</span>
+            <span class="tl-chip chip-purple">Day 1 • Evening</span>
+          </div>
+          <h3 class="tl-title">Ladies Sangeet &amp; Celebration</h3>
+          <p class="tl-desc">
+            An evening of scintillating music, live dhol beats, family dance medleys, vibrant boliyan, cocktails, and a
+            grand dinner under fairy lights.
+          </p>
+          <div class="tl-meta">
+            <span>📍 Aashirwad Banquet &amp; Garden</span>
+            <span>✨ Dress Code: Traditional Glam</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: Shaadi -->
+      <div class="timeline-row scroll-slide-up" data-theme="shaadi">
+        <div class="timeline-date-badge">
+          <span class="day">22</span>
+          <span class="mon">NOV</span>
+          <span class="yr">2026</span>
+        </div>
+        <div class="timeline-marker">
+          <span class="marker-dot"></span>
+        </div>
+        <div class="timeline-content-card">
+          <div class="tl-card-header">
+            <span class="tl-time">7:00 PM Onwards</span>
+            <span class="tl-chip chip-red">Day 2 • Wedding Night</span>
+          </div>
+          <h3 class="tl-title">The Grand Shaadi (Wedding)</h3>
+          <p class="tl-desc">
+            Baraat Swagat followed by the grand Varmala (Jaimala) under the floral canopy, solemn Vedic Pheras around
+            the holy fire, and the lavish royal wedding banquet.
+          </p>
+          <div class="tl-meta">
+            <span>📍 Aashirwad Banquet &amp; Garden</span>
+            <span>👑 Dress Code: Royal Ethnic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VENUE & DIRECTIONS SECTION
+       ============================================================ -->
+  <section class="section section--venue" id="venue">
+    <div class="section-header">
+      <p class="section-tag">॥ स्थान एवं मार्ग ॥</p>
+      <h2 class="section-title">The Royal Venue</h2>
+      <div class="title-ornament"><span></span><span class="dia">♦</span><span>⚜</span><span
+          class="dia">♦</span><span></span></div>
+      <p class="section-desc">We look forward to welcoming you with folded hands and open hearts.</p>
+    </div>
+
+    <div class="venue-card-wrapper scroll-slide-up">
+      <div class="venue-info-box">
+        <div class="venue-crest">⚜</div>
+        <h3 class="venue-name" data-bind="venueName">Aashirwad Banquet &amp; Garden</h3>
+        <p class="venue-address" data-bind="venueAddress">
+          Near Kherki Daula Toll Plaza, Gurugram, Haryana - 122004
+        </p>
+
+        <div class="venue-highlights">
+          <div class="vh-item">
+            <span class="vh-icon">🚗</span>
+            <span class="vh-text">Valet Parking Available</span>
+          </div>
+          <div class="vh-item">
+            <span class="vh-icon">🏰</span>
+            <span class="vh-text">Indoor Banquet &amp; Lush Lawn</span>
+          </div>
+          <div class="vh-item">
+            <span class="vh-icon">🛣️</span>
+            <span class="vh-text">Prime Access via NH-48</span>
+          </div>
+        </div>
+
+        <div class="venue-buttons">
+          <a id="directionsBtn" class="btn btn--gold-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="3 11 22 2 13 21 11 13 3 11" />
+            </svg>
+            Get Directions (Google Maps)
+          </a>
+          <button id="copyAddressBtn" class="btn btn--gold-outline" type="button">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            <span id="copyText">Copy Address</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="venue-map-container">
+        <iframe id="mapFrame" title="Google Map of Venue" loading="lazy" allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BLESSING NOTE SECTION
+       ============================================================ -->
+  <section class="section section--blessing-note scroll-slide-up" id="blessing">
+    <div class="blessing-banner">
+      <div class="banner-crest">⚜</div>
+      <p class="section-tag">॥ शुभाशीर्वाद ॥</p>
+      <h2 class="blessing-message">come and bless the couple for new journey .</h2>
+      <div class="title-ornament"><span></span><span class="dia">♦</span><span>⚜</span><span
+          class="dia">♦</span><span></span></div>
+      <p class="blessing-sub">With folded hands and loving hearts, we eagerly await your gracious presence and warm
+        blessings.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ROYAL FOOTER
+       ============================================================ -->
+  <footer class="royal-footer">
+    <div class="footer-crest">
+      <span class="crest-symbol">⚜</span>
+    </div>
+    <h2 class="footer-couple">
+      <span data-bind="bride">Donika</span> &amp; <span data-bind="groom">Aval</span>
+    </h2>
+    <p class="footer-gratitude">
+      “Your presence is the greatest gift of love and blessing we could ask for.”
+    </p>
+    <p class="footer-hosts" id="hostsText">
+      With Love &amp; Warm Regards: All Family Members &amp; Relatives
+    </p>
+    <div class="footer-divider">
+      <span>♦</span><span>⚜</span><span>♦</span>
+    </div>
+    <p class="footer-copyright">
+      Celebrating Shubh Vivah • November 2026
+    </p>
+  </footer>
+
+  <!-- Toast notification element -->
+  <div id="toastNotification" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Audio element fallback if mp3 is provided in CONFIG -->
+  <audio id="weddingAudio" loop preload="none"></audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
